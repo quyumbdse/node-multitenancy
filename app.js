@@ -18,7 +18,8 @@ Model.knex(knex);
 const productRoute = require('./api/routes/product');
 const tenantRoute = require('./api/routes/tenant');
 const shopRoute = require('./api/routes/shop');
-const userRoute = require('./api/routes/user');
+const signupRoute = require('./api/routes/user');
+const loginRoute = require('./api/routes/user');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -27,7 +28,8 @@ app.use(bodyParser.json());
 app.use('/products', productRoute);
 app.use('/tenants', tenantRoute);
 app.use('/shops', shopRoute);
-app.use('/signup', userRoute);
+app.use('/signup', signupRoute);
+app.use('/login', loginRoute);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');

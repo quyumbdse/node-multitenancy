@@ -1,5 +1,7 @@
 const { Model } = require('objection');
-class User extends Model {
+const Password = require('objection-password')();
+
+class User extends Password(Model) {
 
   // Table name is the only required property.
   static get tableName() {
