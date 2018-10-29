@@ -19,9 +19,41 @@ const userSignup = async(req, res) => {
     res.send(insertedGraph);
 }
 
-const loginController = (req, res, next) => {
+const loginController = async(req, res, next) => {
   
-}
+       await User.query().where({ email: req.body.email })
+      
+    .then(user => {
+      if (user.length < 1) {
+        return res.status(401).json({
+          message: "Auth failed"
+        });
+      }
+      bcrypt.compare(req.body.password, user[0].password, (err, result) => {
+        if (err) {
+          return res.status(401).json({
+            message: "Auth failed"
+          });
+        }
+       if(result) {
+        return res.status(200).json({
+          message: "Auth successful"
+        });
+       }
+       return res.status(401).json({
+        message: "Auth failed"
+      });
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+
+  }
+
 
 module.exports = {
                     userSignup,
