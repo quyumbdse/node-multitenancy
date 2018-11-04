@@ -14,11 +14,11 @@ Model.knex(knex);
 
 
 // Routes 
-const productRoute = require('./api/routes/product');
-const tenantRoute = require('./api/routes/tenant');
-const shopRoute = require('./api/routes/shop');
-const orderRoute = require('./api/routes/order');
-const userRoute = require('./api/routes/user');
+const productRoute = require('./api/routes/products');
+const tenantRoute = require('./api/routes/tenants');
+const shopRoute = require('./api/routes/shops');
+const orderRoute = require('./api/routes/orders');
+const userRoute = require('./api/routes/users');
 
 
 app.use(morgan('dev'));

@@ -19,7 +19,7 @@ exports.up = knex => {
     .createTable('orders', table => {
         table.increments('id').primary();
         table.string('tenantId');
-        table.string('name');
+        table.string('quantity');
         table.string('status');
     })
 

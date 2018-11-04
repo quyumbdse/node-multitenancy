@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const tenantContl =  require('../controllers/tenantController');
+const tenantContl =  require('../controllers/tenantsController');
 const checkAuth = require('../middleware/authentication');
 const admin = require('../middleware/admin');
 
