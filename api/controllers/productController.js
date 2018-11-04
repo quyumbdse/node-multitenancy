@@ -25,7 +25,7 @@ const createProduct = async (req, res) => {
       return (
         Product.query(tranx)
           // For security reasons, limit the relations that can be inserted.
-         // .allowInsert('[pets, children.[pets, movies], movies, parent]')
+     //.allowInsert('[]')
           .insertGraph(product)
       );
     });

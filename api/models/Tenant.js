@@ -1,5 +1,6 @@
 const  Model  = require('objection').Model;
 const Shop = require('../models/Shop')
+
 class Tenant extends Model {
   static get tableName() {
     return 'tenants';
@@ -9,7 +10,7 @@ class Tenant extends Model {
   static get jsonSchema() {
     return{
       properties: {
-        name: {type: 'string'},
+        name: {type: 'string'}, 
       }
     }
     
@@ -23,7 +24,7 @@ class Tenant extends Model {
         modelClass: Shop,
         join: {
           from: 'tenants.id',
-          to: 'shops.tenantId'
+          to: 'shops.id'
         }
       }
     }

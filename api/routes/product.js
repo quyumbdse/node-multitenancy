@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const productCtrl = require('../controllers/productController');
+const checkAuth = require('../middleware/authentication');
+
 
 router.get('/', productCtrl.getAllProducts);
 
-router.post('/', productCtrl.createProduct);
+router.post('/',productCtrl.createProduct);
 
 router.get('/:id', productCtrl.getSingleProduct);
 

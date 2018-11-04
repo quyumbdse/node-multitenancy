@@ -9,11 +9,13 @@ const getAllShops = async(req, res, next) => {
     .context({ 
         onBuild: builder => { 
             if (Shop.isTenantSpecific){
-                builder.where({tenantId})}
+                builder.where({tenantId})
+            }
         }
     })
     .skipUndefined()
-    
+    //.eager(req.query.eager)
+    .eager('products')
     res.send(shops);
 }
 

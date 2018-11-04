@@ -17,7 +17,9 @@ Model.knex(knex);
 const productRoute = require('./api/routes/product');
 const tenantRoute = require('./api/routes/tenant');
 const shopRoute = require('./api/routes/shop');
+const orderRoute = require('./api/routes/order');
 const userRoute = require('./api/routes/user');
+
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -26,6 +28,7 @@ app.use(bodyParser.json());
 app.use('/products', productRoute);
 app.use('/tenants', tenantRoute);
 app.use('/shops', shopRoute);
+app.use('/orders', orderRoute);
 app.use('/', userRoute);
 
 

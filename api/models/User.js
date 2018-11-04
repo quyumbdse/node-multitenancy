@@ -14,11 +14,17 @@ class User extends Password(Model) {
   static get jsonSchema () {
     return {
         properties: {
-            required: 'tenantId',
-            id: {type: 'integer'},
             email: {type: 'string'},
             password: {type: 'string'},
-            tenantId: {type: 'string'}
+            shopId: {type: 'string'},
+  
+            roles: [
+
+              {
+                isAdmin: {type: 'boolean'},
+                isManager: {type: 'boolean'},
+              }
+            ]
     }
    }
   }
